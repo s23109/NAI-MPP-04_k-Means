@@ -7,7 +7,15 @@ public class Element {
 
     List<Double> coordinates;
     String name_of_object;
+    String assigned_centroid;
 
+    public String getAssigned_centroid() {
+        return assigned_centroid;
+    }
+
+    public void setAssigned_centroid(String assigned_centroid) {
+        this.assigned_centroid = assigned_centroid;
+    }
 
     public Element(String name_of_object, List<Double> coordinates) {
         this.name_of_object = name_of_object;

@@ -2,6 +2,7 @@ package com.sussy_package;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class Main {
 
@@ -14,6 +15,7 @@ public class Main {
 
         List<Centroid> centroidList = new ArrayList<>();
 
+        //los koord centroidów
         for (int i = 0; i < k; i++) {
             centroidList.add(
                     new Centroid(
@@ -25,6 +27,7 @@ public class Main {
             System.out.println("Utworzono "+ centroidList.get(i).centroidName + " o koord wstępnych " + centroidList.get(i).centroidCoordinates);
         }
 
+        Stack<List<List<Double>>> poprzednie_centroidy = new Stack<>();
 
     }
 }
