@@ -32,8 +32,28 @@ public class Main {
         while (doPetli){
 
             // przejdź przez elementy- klasyfikuj je
+            for (Element element: elementList) {
+                double smallestDistance = Double.MAX_VALUE;
+                String smallestName = null;
+
+                //sprawdź do którego jest najmniejszy dystans
+                for (Centroid centroid : centroidList) {
+                   double distance = centroid.getDistanceTo(element.getCoordinates());
+                   if (smallestDistance>distance){
+                       smallestDistance=distance;
+                       smallestName=centroid.centroidName;
+                   }
+                }
+                //przypisz go
+                element.setAssigned_centroid(smallestName);
+
+
+
+            }
+
 
             // oblicz nowe centroidy
+
 
             //dodaj je do listy-> sprawdź czy ostatnie są takie same
 

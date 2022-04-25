@@ -32,4 +32,15 @@ public class Centroid {
         }
         return doReturna;
     }
+
+    public double getDistanceTo (List<Double> coordinates ){
+        double distance = 0;
+
+        for (int i = 0; i < this.centroidCoordinates.size(); i++) {
+            distance+= Math.pow((coordinates.get(i)-centroidCoordinates.get(i)),2);
+        }
+
+        return Math.sqrt(distance);
+    }
+
 }
