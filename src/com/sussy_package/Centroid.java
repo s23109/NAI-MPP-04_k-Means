@@ -43,4 +43,16 @@ public class Centroid {
         return Math.sqrt(distance);
     }
 
+    public void calculateNewCoordinate (List<Element> elementList){
+
+        List<Double> newCoordinates = elementList.get(0).getCoordinates();
+
+        for (int i = 1; i < elementList.size(); i++) {
+            //TODO calculateNewCoordinate
+        }
+
+    }
+
+
+
 }

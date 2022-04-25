@@ -46,19 +46,25 @@ public class Main {
                 }
                 //przypisz go
                 element.setAssigned_centroid(smallestName);
-
-
-
             }
 
 
             // oblicz nowe centroidy
+            for (Centroid ce : centroidList) {
+                List<Element> nalezace = new ArrayList<>();
+                for (Element e: elementList) {
+                    if (e.assigned_centroid.equals(ce.centroidName)){ nalezace.add(e);}
+                }
+                ce.calculateNewCoordinate(nalezace);
+            }
 
-
+            //TODO sprawdź czy te same
             //dodaj je do listy-> sprawdź czy ostatnie są takie same
+            poprzednie_centroidy.add(Centroid.generateCentroidCoordinates(centroidList));
 
         }
 
+        //TODO  
         // wypisz czystość grup itp itd
 
     }
