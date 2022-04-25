@@ -1,8 +1,6 @@
 package com.sussy_package;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class Main {
 
@@ -27,7 +25,21 @@ public class Main {
             System.out.println("Utworzono "+ centroidList.get(i).centroidName + " o koord wstępnych " + centroidList.get(i).centroidCoordinates);
         }
 
-        Stack<List<List<Double>>> poprzednie_centroidy = new Stack<>();
+        List<List<List<Double>>> poprzednie_centroidy = new ArrayList<>();
+
+        boolean doPetli = true;
+
+        while (doPetli){
+
+            // przejdź przez elementy- klasyfikuj je
+
+            // oblicz nowe centroidy
+
+            //dodaj je do listy-> sprawdź czy ostatnie są takie same
+
+        }
+
+        // wypisz czystość grup itp itd
 
     }
 }
