@@ -18,9 +18,9 @@ public class Main {
             centroidList.add(
                     new Centroid(
                             new String("Centroid" + String.valueOf(i)),
-                            elementList.get((int) (elementList.size()*(double)i/k)).getCoordinates()
-                            )
+                            new ArrayList<>((elementList.get((int) (elementList.size()*(double)i/k)).getCoordinates())))
             );
+
 
             System.out.println("Utworzono "+ centroidList.get(i).centroidName + " o koord wstępnych " + centroidList.get(i).centroidCoordinates);
         }
@@ -84,11 +84,24 @@ public class Main {
         }
 
         for (Element element: elementList) {
-
-
-
+            centroidList.get(Integer.parseInt(element.assigned_centroid.substring(8))).addToMap(element);
         }
 
+        for (Centroid c:centroidList) {
+            System.out.println("=====================");
+            System.out.println(c.centroidName);
+            c.czystosci();
+            System.out.println("---------------------");
+            System.out.println("Zawartość: ");
+            for (Element e :elementList) {
+                if (e.assigned_centroid.equals(c.centroidName)){
+                    System.out.println(e.name_of_object + " " + e.getCoordinates());
+                }
+            }
+            System.out.println("---------------------");
+
+        }
+        System.out.println("=====================");
         //TODO  
         // wypisz czystość grup itp itd
 
