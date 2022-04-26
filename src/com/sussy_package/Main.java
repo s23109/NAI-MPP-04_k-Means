@@ -18,9 +18,10 @@ public class Main {
             centroidList.add(
                     new Centroid(
                             new String("Centroid" + String.valueOf(i)),
-                            new ArrayList<>((elementList.get((int) (elementList.size()*(double)i/k)).getCoordinates())))
+                            new ArrayList<>()
+            )
             );
-
+            System.arraycopy((elementList.get((int) (elementList.size()*(double)i/k)).getCoordinates()),0,centroidList.get(i).centroidCoordinates,0,(elementList.get((int) (elementList.size()*(double)i/k)).getCoordinates()).size());
 
             System.out.println("Utworzono "+ centroidList.get(i).centroidName + " o koord wstępnych " + centroidList.get(i).centroidCoordinates);
         }
