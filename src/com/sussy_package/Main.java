@@ -82,7 +82,13 @@ public class Main {
 
 
         }
-        
+
+        for (Element element: elementList) {
+
+
+
+        }
+
         //TODO  
         // wypisz czystość grup itp itd
 

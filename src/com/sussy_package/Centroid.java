@@ -1,13 +1,17 @@
 package com.sussy_package;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Centroid {
 
 
     List<Double> centroidCoordinates;
     String centroidName;
+    public Map<String,Integer> elementCount = new HashMap<>();
+    public int elementAmount = 0;
 
     public Centroid(String centroidName , List<Double> centroidCoordinates ) {
         this.centroidCoordinates = centroidCoordinates;
@@ -65,6 +69,20 @@ public class Centroid {
 
         setCentroidCoordinates(newCoordinates);
 
+    }
+
+    public void addToMap (Element element){
+
+        if (elementCount.containsKey(element.name_of_object)){
+            //jeśli zawiera to dodaj
+            elementCount.put(element.name_of_object, (elementCount.get(element.name_of_object)+1));
+
+        }
+        else {
+            //dodaj indeks równy 1
+            elementCount.put(element.name_of_object,1);
+        }
+        this.elementAmount = elementAmount+1;
     }
 
 

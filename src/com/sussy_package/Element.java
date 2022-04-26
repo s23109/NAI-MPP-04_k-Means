@@ -6,7 +6,7 @@ import java.util.List;
 public class Element {
 
     List<Double> coordinates;
-    String name_of_object;
+   public String name_of_object;
     String assigned_centroid;
 
     public String getAssigned_centroid() {
