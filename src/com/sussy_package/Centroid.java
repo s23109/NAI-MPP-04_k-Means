@@ -48,8 +48,22 @@ public class Centroid {
         List<Double> newCoordinates = elementList.get(0).getCoordinates();
 
         for (int i = 1; i < elementList.size(); i++) {
-            //TODO calculateNewCoordinate
+
+            for (int j = 0; j < elementList.get(i).coordinates.size(); j++) {
+
+                newCoordinates.set(j,newCoordinates.get(j)+elementList.get(i).getCoordinates().get(j));
+
+            }
+
         }
+
+        // macierz z sumą długości wektorów
+
+        for (int i = 0; i < newCoordinates.size(); i++) {
+            newCoordinates.set(i, newCoordinates.get(i)/elementList.size());
+        }
+
+        setCentroidCoordinates(newCoordinates);
 
     }
 
