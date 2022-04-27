@@ -7,9 +7,9 @@ public class Main {
     public static void main(String[] args) {
         final int k = 3;
         final int max_powtorzen_petli = 10000;
-        List<Element> elementList = File_operations.list_from_file("Dane\\iris.data.txt");
+        final List<Element> elementList = File_operations.list_from_file("Dane\\iris.data.txt");
 
-
+        System.out.println("Elements amount :" + elementList.size());
 
         List<Centroid> centroidList = new ArrayList<>();
 
@@ -18,18 +18,21 @@ public class Main {
             centroidList.add(
                     new Centroid(
                             new String("Centroid" + String.valueOf(i)),
-                            new ArrayList<>()
+                            Centroid.generateElements(elementList.get(0).coordinates.size(),0.0,5.0)
             )
             );
-            System.arraycopy((elementList.get((int) (elementList.size()*(double)i/k)).getCoordinates()),0,centroidList.get(i).centroidCoordinates,0,(elementList.get((int) (elementList.size()*(double)i/k)).getCoordinates()).size());
+
 
             System.out.println("Utworzono "+ centroidList.get(i).centroidName + " o koord wstępnych " + centroidList.get(i).centroidCoordinates);
         }
+
 
         List<List<List<Double>>> poprzednie_centroidy = new ArrayList<>();
 
         boolean doPetli = true;
         int powtorzenia = 0;
+
+        //przypisywanie + obliczenia do tego
         while (doPetli){
             powtorzenia+=1;
             // przejdź przez elementy- klasyfikuj je
@@ -91,20 +94,24 @@ public class Main {
         for (Centroid c:centroidList) {
             System.out.println("=====================");
             System.out.println(c.centroidName);
+            System.out.println("---------------------");
+            System.out.println("Srodek :" + c.centroidCoordinates);
             c.czystosci();
             System.out.println("---------------------");
             System.out.println("Zawartość: ");
+            int ilosc = 0;
             for (Element e :elementList) {
                 if (e.assigned_centroid.equals(c.centroidName)){
                     System.out.println(e.name_of_object + " " + e.getCoordinates());
+                    ilosc+=1;
                 }
             }
+            System.out.println("Assigned elements = " + ilosc);
             System.out.println("---------------------");
 
         }
         System.out.println("=====================");
-        //TODO  
-        // wypisz czystość grup itp itd
+
 
     }
 }

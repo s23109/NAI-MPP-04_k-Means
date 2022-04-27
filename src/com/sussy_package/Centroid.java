@@ -49,26 +49,29 @@ public class Centroid {
 
     public void calculateNewCoordinate (List<Element> elementList){
 
-        List<Double> newCoordinates = elementList.get(0).getCoordinates();
+        if (elementList.size()!=0) {
 
-        for (int i = 1; i < elementList.size(); i++) {
 
-            for (int j = 0; j < elementList.get(i).coordinates.size(); j++) {
+            List<Double> newCoordinates = elementList.get(0).getCoordinates();
 
-                newCoordinates.set(j,newCoordinates.get(j)+elementList.get(i).getCoordinates().get(j));
+            for (int i = 1; i < elementList.size(); i++) {
+
+                for (int j = 0; j < elementList.get(i).coordinates.size(); j++) {
+
+                    newCoordinates.set(j, newCoordinates.get(j) + elementList.get(i).getCoordinates().get(j));
+
+                }
 
             }
 
+            // macierz z sumą długości wektorów
+
+            for (int i = 0; i < newCoordinates.size(); i++) {
+                newCoordinates.set(i, newCoordinates.get(i) / elementList.size());
+            }
+
+            setCentroidCoordinates(newCoordinates);
         }
-
-        // macierz z sumą długości wektorów
-
-        for (int i = 0; i < newCoordinates.size(); i++) {
-            newCoordinates.set(i, newCoordinates.get(i)/elementList.size());
-        }
-
-        setCentroidCoordinates(newCoordinates);
-
     }
 
     public void addToMap (Element element){
@@ -89,6 +92,17 @@ public class Centroid {
         for (Map.Entry<String,Integer> temp: elementCount.entrySet()) {
             System.out.println(temp.getKey()+" "+ (double)temp.getValue()/elementAmount);
         }
+    }
+
+    public static List<Double> generateElements (int size , double min, double max){
+        List<Double> doReturna = new ArrayList<>();
+
+        for (int i = 0; i < size; i++) {
+            doReturna.add(((Math.random() * (max - min)) + min)*1.25);
+        }
+
+
+        return doReturna;
     }
 
 
