@@ -105,6 +105,40 @@ public class Centroid {
         return doReturna;
     }
 
+    double sredniaOdleglosc (List<Element> elements){
+        double odleglosc = 0;
+        int amount= 0;
+        for (Element e :elements
+             ) {
+            if (e.assigned_centroid == this.centroidName){
+                odleglosc += this.getDistanceTo(e.getCoordinates());
+                amount+=1;
+
+            }
+        }
+
+        if (amount == 0){
+            return 0.0;
+        }
+        return odleglosc/amount;
+    }
+
+    double lacznaOdleglosc (List<Element> elements){
+        double odleglosc = 0;
+
+        for (Element e :elements
+        ) {
+            if (e.assigned_centroid == this.centroidName){
+                odleglosc += this.getDistanceTo(e.getCoordinates());
+            }
+        }
+
+
+        return odleglosc;
+    }
+
+
+
 
 
 }

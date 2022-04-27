@@ -83,9 +83,14 @@ public class Main {
                 doPetli=false;
             }
 
-
+            System.out.println("---------\nPowtorzenie " + powtorzenia + " :");
+            for (Centroid c: centroidList
+                 ) {
+                System.out.println("---\n" + c.centroidName + ": \n Srednia odleglosc do centroidu : "+ c.sredniaOdleglosc(elementList) + "\n Laczna odleglosc do centroidu :" + c.lacznaOdleglosc(elementList));
+            }
 
         }
+
 
         for (Element element: elementList) {
             centroidList.get(Integer.parseInt(element.assigned_centroid.substring(8))).addToMap(element);
@@ -98,15 +103,18 @@ public class Main {
             System.out.println("Srodek :" + c.centroidCoordinates);
             c.czystosci();
             System.out.println("---------------------");
-            System.out.println("Zawartość: ");
-            int ilosc = 0;
-            for (Element e :elementList) {
-                if (e.assigned_centroid.equals(c.centroidName)){
-                    System.out.println(e.name_of_object + " " + e.getCoordinates());
-                    ilosc+=1;
-                }
-            }
-            System.out.println("Assigned elements = " + ilosc);
+//            System.out.println("Zawartość: ");
+//            int ilosc = 0;
+//            for (Element e :elementList) {
+//                if (e.assigned_centroid.equals(c.centroidName)){
+//                    System.out.println(e.name_of_object + " " + e.getCoordinates());
+//                    ilosc+=1;
+//                }
+//            }
+//            System.out.println("Assigned elements = " + ilosc);
+
+
+
             System.out.println("---------------------");
 
         }
