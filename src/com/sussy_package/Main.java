@@ -66,16 +66,7 @@ public class Main {
             //dodaj je do listy-> sprawdź czy ostatnie są takie same
             poprzednie_centroidy.add(Centroid.generateCentroidCoordinates(centroidList));
 
-            if (poprzednie_centroidy.size()==2){
-                //sprawdź czy to te same
-                if (poprzednie_centroidy.get(0).equals(poprzednie_centroidy.get(1))){
-                    //dwie poprzednie grupy są takie same , wywal
-                    doPetli=false;
-                    System.out.println("Dwie poprzednie grupy centroidów są takie same, wychodzenie z pętli");
-                }else {
-                    poprzednie_centroidy.remove(0);
-                }
-            }
+
 
             // If do liczby powtórzeń
             if (powtorzenia>= max_powtorzen_petli){
@@ -87,6 +78,18 @@ public class Main {
             for (Centroid c: centroidList
                  ) {
                 System.out.println("---\n" + c.centroidName + ": \n Srednia odleglosc do centroidu : "+ c.sredniaOdleglosc(elementList) + "\n Laczna odleglosc do centroidu :" + c.lacznaOdleglosc(elementList));
+            }
+
+
+            if (poprzednie_centroidy.size()==2){
+                //sprawdź czy to te same
+                if (poprzednie_centroidy.get(0).equals(poprzednie_centroidy.get(1))){
+                    //dwie poprzednie grupy są takie same , wywal
+                    doPetli=false;
+                    System.out.println("---------\nDwie poprzednie grupy centroidów są takie same, wychodzenie z pętli");
+                }else {
+                    poprzednie_centroidy.remove(0);
+                }
             }
 
         }
