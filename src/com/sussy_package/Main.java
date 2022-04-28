@@ -103,15 +103,15 @@ public class Main {
             System.out.println("Srodek :" + c.centroidCoordinates);
             c.czystosci();
             System.out.println("---------------------");
-//            System.out.println("Zawartość: ");
-//            int ilosc = 0;
-//            for (Element e :elementList) {
-//                if (e.assigned_centroid.equals(c.centroidName)){
-//                    System.out.println(e.name_of_object + " " + e.getCoordinates());
-//                    ilosc+=1;
-//                }
-//            }
-//            System.out.println("Assigned elements = " + ilosc);
+            System.out.println("Zawartość: ");
+            int ilosc = 0;
+            for (Element e :elementList) {
+                if (e.assigned_centroid.equals(c.centroidName)){
+                    System.out.println(e.name_of_object + " " + e.getCoordinates());
+                    ilosc+=1;
+                }
+            }
+            System.out.println("Assigned elements = " + ilosc);
 
 
 

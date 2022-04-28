@@ -52,9 +52,13 @@ public class Centroid {
         if (elementList.size()!=0) {
 
 
-            List<Double> newCoordinates = elementList.get(0).getCoordinates();
+            List<Double> newCoordinates = new ArrayList<>();
 
-            for (int i = 1; i < elementList.size(); i++) {
+            for (int i = 0; i < centroidCoordinates.size(); i++) {
+                newCoordinates.add(0.0);
+            }
+
+            for (int i = 0; i < elementList.size(); i++) {
 
                 for (int j = 0; j < elementList.get(i).coordinates.size(); j++) {
 
