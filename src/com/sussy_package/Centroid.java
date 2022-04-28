@@ -94,7 +94,7 @@ public class Centroid {
 
     public void czystosci(){
         for (Map.Entry<String,Integer> temp: elementCount.entrySet()) {
-            System.out.println(temp.getKey()+" "+ (double)temp.getValue()/elementAmount);
+            System.out.println(temp.getKey()+" "+ (double)temp.getValue()/elementAmount + " -> " + temp.getValue() + "/" + elementAmount);
         }
     }
 
